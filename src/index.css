@@ -52,12 +52,14 @@
 }
 
 .project-elem {
-    margin: 10px;
+    break-inside: avoid;
+    margin-bottom: 20px;
 }
 
 .project-img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 @media (min-width: 634px) {
