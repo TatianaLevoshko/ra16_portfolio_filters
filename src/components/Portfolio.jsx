@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import { PureComponent } from "react";
 import Toolbar from "./Toolbar";
 import ProjectList from "./ProjectList";
 
@@ -97,11 +97,10 @@ export default class Portfolio extends PureComponent {
 
     constructor(props) {
     super(props);
-    // Инициализируем состояние: текущий фильтр — "All"
+    // Инициализируем состояние
     this.state = {
         filter: "All",
     };
-    // Привязываем метод, чтобы this внутри onSelectFilter был корректным
     this.onSelectFilter = this.onSelectFilter.bind(this);
     }
 
