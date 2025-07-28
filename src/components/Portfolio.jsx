@@ -1,4 +1,4 @@
-import { PureComponent } from "react";
+import React, { PureComponent } from "react";
 import Toolbar from "./Toolbar";
 import ProjectList from "./ProjectList";
 
@@ -6,7 +6,7 @@ export default class Portfolio extends PureComponent {
   // Список категорий-фильтров
   filters = ["All", "Websites", "Flayers", "Business Cards"];
 
-  // Массив проектов
+  // Массив проектов с картинками и категориями
   projects = [
     {
       img:
@@ -97,17 +97,20 @@ export default class Portfolio extends PureComponent {
 
   constructor(props) {
     super(props);
-    // Инициализация состояния: текущий фильтр — "All"
+    // Инициализируем состояние: текущий фильтр — "All"
     this.state = {
       filter: "All",
     };
+    // Привязываем метод, чтобы this внутри onSelectFilter был корректным
     this.onSelectFilter = this.onSelectFilter.bind(this);
   }
-  
+
+  // Обработчик выбора фильтра из Toolbar
   onSelectFilter(filter) {
     this.setState({ filter });
   }
 
+  // Фильтрация проектов по текущему фильтру
   filterProjects() {
     const { filter } = this.state;
     if (filter === "All") {
