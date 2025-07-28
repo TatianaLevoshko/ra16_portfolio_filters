@@ -6,7 +6,6 @@ const ProjectList = ({ projects }) => {
       <ul className="projects-list">
         {projects.map((project, idx) => (
           <li className="project-elem" key={idx}>
-            {/* Отображаем картинку проекта; alt = категория */}
             <img
               src={project.img}
               alt={project.category}

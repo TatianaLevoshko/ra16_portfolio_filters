@@ -7,11 +7,6 @@ const Toolbar = ({ filters, selected, onSelectFilter }) => {
       <ul className="toolbar-list">
         {filters.map((filter, idx) => (
           <li className="toolbar-list-elem" key={idx}>
-            {/* 
-              Кнопка фильтра.
-              Если этот filter совпадает с выбранным (selected), 
-              к классу добавится 'btn-category_selected'
-            */}
             <button
               className={cn(
                 "btn-category",
