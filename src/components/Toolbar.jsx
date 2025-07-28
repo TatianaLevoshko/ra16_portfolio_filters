@@ -1,25 +1,31 @@
-import PropTypes from 'prop-types';
+import React from "react";
+import cn from "classnames";
 
-function Toolbar({ filters, selected, onSelectFilter }) {
-    return (
+const Toolbar = ({ filters, selected, onSelectFilter }) => {
+  return (
     <div className="toolbar">
-        {filters.map((filter, index) => (
-        <button
-            key={index}
-            className={filter === selected ? 'selected' : ''}
-            onClick={() => onSelectFilter(filter)}
-        >
-            {filter}
-        </button>
+      <ul className="toolbar-list">
+        {filters.map((filter, idx) => (
+          <li className="toolbar-list-elem" key={idx}>
+            {/* 
+              Кнопка фильтра.
+              Если этот filter совпадает с выбранным (selected), 
+              к классу добавится 'btn-category_selected'
+            */}
+            <button
+              className={cn(
+                "btn-category",
+                filter === selected && "btn-category_selected"
+              )}
+              onClick={() => onSelectFilter(filter)} // при клике передаём filter наверх
+            >
+              {filter}
+            </button>
+          </li>
         ))}
+      </ul>
     </div>
-    );
-}
-
-Toolbar.propTypes = {
-    filters: PropTypes.arrayOf(PropTypes.string).isRequired,
-    selected: PropTypes.string.isRequired,
-    onSelectFilter: PropTypes.func.isRequired,
+  );
 };
 
 export default Toolbar;
